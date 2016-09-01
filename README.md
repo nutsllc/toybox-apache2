@@ -1,10 +1,14 @@
 # toybox-apache2
 
-# Usage Example (using Docker)
+## Usage Example (using Docker)
 
-``docker run -it -e TOYBOX_GID=1000 -e TOYBOX_UID=1000 -d toybox/apache2``
+``docker run -it -p 8080:80 -d toybox/apache2``
 
-# Persistent Volumes
+## An assimilating GID and UID of host user into container
+
+``docker run -it -p 8080:80 -e TOYBOX_GID=1000 -e TOYBOX_UID=1000 -d toybox/apache2``
+
+## Persistent Volumes
 
 ### Document Root
 
