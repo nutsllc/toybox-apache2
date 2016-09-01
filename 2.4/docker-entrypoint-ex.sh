@@ -4,7 +4,6 @@ set -e
 user="www-data"
 group="www-data"
 
-echo "TOYBOX_GID=${TOYBOX_GID}"
 if [ -n "${TOYBOX_GID+x}" ]; then
     groupmod -g ${TOYBOX_GID} ${group}
 fi
