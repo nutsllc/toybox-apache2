@@ -1,4 +1,4 @@
-FROM httpd:2.4.20-alpine
+FROM httpd:2.4.20
 MAINTAINER NutsProject,LLC
 
 RUN tar cvzf /usr/src/apache2-default-doc.tar.gz -C /usr/local/apache2/htdocs ./
