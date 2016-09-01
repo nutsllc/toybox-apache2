@@ -4,8 +4,14 @@ set -e
 user="www-data"
 group="www-data"
 
-usermod -u ${TOYBOX_UID} ${user}
-groupmod -g ${TOYBOX_GID} ${group}
+echo "TOYBOX_GID=${TOYBOX_GID}"
+if [ -n "${TOYBOX_GID+x}" ]; then
+    groupmod -g ${TOYBOX_GID} ${group}
+fi
+
+if [ -n "${TOYBOX_UID+x}" ]; then
+    usermod -u ${TOYBOX_UID} ${user}
+fi
 
 docroot="/var/www/html"
 mkdir -p ${docroot}
