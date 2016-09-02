@@ -21,19 +21,19 @@ This image is registered to the [Docker Hub](https://hub.docker.com/r/nutsllc/to
 
 ### Persistent the Apache2 document root contents
 
-``docker run -it -p 8080:80 -v $(pwd)/docroot:/usr/local/apache2/htdocs -d nutsllc/toybox-apache2``
+``docker run -it -p 8080:80 -v $(pwd)/.data/docroot:/usr/local/apache2/htdocs -d nutsllc/toybox-apache2``
 
 ### Persistent the Apache2 config files
 
-``docker run -it -p 8080:80 -v $(pwd)/conf:/etc/apache2 -d nutsllc/toybox-apache2``
+``docker run -it -p 8080:80 -v $(pwd)/.data/conf:/etc/apache2 -d nutsllc/toybox-apache2``
 
 ## Docker Compose example
 ```
 toybox-apache2:
-	image nutsllc/apache2:latest
+	image nutsllc/toybox-apache2:latest
 	volumes:
-		- "./htdocs:/usr/local/apache2/htdocs"
-		- "./conf:/usr/local/apache2/conf"
+		- "./.data/htdocs:/usr/local/apache2/htdocs"
+		- "./.data/conf:/etc/apache2"
 	environment:
 		- TOYBOX_UID=1000
 		- TOYBOX_GID=1000
