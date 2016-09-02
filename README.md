@@ -6,10 +6,6 @@ This ``toybox-apache`` image has been extended [the official httpd image](https:
 
 This image is registered to the [Docker Hub](https://hub.docker.com/r/nutsllc/toybox-apache2/) which is the official docker image registory.
 
-## Feature
-
-* gid/uid inside container correspond with outside container gid/uid by ``TOYBOX_GID`` or ``TOYBOX_UID`` environment valiable.
-
 ## Usage
 
 ### The simplest way to run
@@ -17,11 +13,13 @@ This image is registered to the [Docker Hub](https://hub.docker.com/r/nutsllc/to
 
 ### To correspond the gid/uid between inside and outside container
 
+* To find a specific user's UID and GID, at the shell prompt, enter: ``id <username>``
+
 ``docker run -it -p 8080:80 -e TOYBOX_GID=1000 -e TOYBOX_UID=1000 -d nutsllc/toybox-apache2``
 
 ### Persistent the Apache2 document root contents
 
-``docker run -it -p 8080:80 -v $(pwd)/.data/docroot:/usr/local/apache2/htdocs -d nutsllc/toybox-apache2``
+``docker run -it -p 8080:80 -v $(pwd)/.datas/docroot:/usr/local/apache2/htdocs -d nutsllc/toybox-apache2``
 
 ### Persistent the Apache2 config files
 
@@ -30,7 +28,7 @@ This image is registered to the [Docker Hub](https://hub.docker.com/r/nutsllc/to
 ## Docker Compose example
 ```
 toybox-apache2:
-	image nutsllc/toybox-apache2:latest
+	image: nutsllc/toybox-apache2:latest
 	volumes:
 		- "./.data/htdocs:/usr/local/apache2/htdocs"
 		- "./.data/conf:/etc/apache2"
