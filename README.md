@@ -6,10 +6,6 @@ This ``toybox-apache`` image has been extended [the official httpd image](https:
 
 This image is registered to the [Docker Hub](https://hub.docker.com/r/nutsllc/toybox-apache2/) which is the official docker image registory.
 
-## Feature
-
-* gid/uid inside container correspond with outside container gid/uid by ``TOYBOX_GID`` or ``TOYBOX_UID`` environment valiable.
-
 ## Usage
 
 ### The simplest way to run
@@ -32,7 +28,7 @@ This image is registered to the [Docker Hub](https://hub.docker.com/r/nutsllc/to
 ## Docker Compose example
 ```
 toybox-apache2:
-	image nutsllc/toybox-apache2:latest
+	image: nutsllc/toybox-apache2:latest
 	volumes:
 		- "./.data/htdocs:/usr/local/apache2/htdocs"
 		- "./.data/conf:/etc/apache2"
