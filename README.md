@@ -6,6 +6,8 @@ This ``toybox-apache`` image has been extended [the official httpd image](https:
 
 This image is registered to the [Docker Hub](https://hub.docker.com/r/nutsllc/toybox-apache2/) which is the official docker image registory.
 
+In addition, this image is compatible with [ToyBox](https://github.com/nutsllc/toybox) complytely to manage the applications on Docker.
+
 ## Usage
 
 ### The simplest way to run
